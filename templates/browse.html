@@ -806,7 +806,7 @@
                             <i class="fas fa-brain" style="font-size:1.5rem;color:#60A5FA"></i>
                         </div>
                         <div style="color:#F1F5F9;font-weight:700;font-size:1rem;margin-bottom:.4rem">AI Document Analysis</div>
-                        <p style="color:#94A3B8;font-size:.82rem;margin-bottom:1.25rem;line-height:1.6;max-width:320px;margin-left:auto;margin-right:auto">Automatically classify this document, detect PII, score risk, and surface key findings using Gemini AI.</p>
+                        <p style="color:#94A3B8;font-size:.82rem;margin-bottom:1.25rem;line-height:1.6;max-width:320px;margin-left:auto;margin-right:auto">Automatically classify this document, detect PII, score risk, and surface key findings using AI.</p>
                         <div style="display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem">
                             <span style="background:rgba(59,130,246,.15);color:#93C5FD;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:600;border:1px solid rgba(59,130,246,.3)"><i class="fas fa-tag me-1"></i>Category Detection</span>
                             <span style="background:rgba(239,68,68,.15);color:#FCA5A5;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:600;border:1px solid rgba(239,68,68,.3)"><i class="fas fa-shield-alt me-1"></i>PII Scanning</span>
@@ -824,7 +824,7 @@
                             <i class="fas fa-brain" style="font-size:1.5rem;color:#60A5FA"></i>
                         </div>
                         <div style="color:#F1F5F9;font-weight:600;margin-bottom:.3rem">Analyzing document&hellip;</div>
-                        <div style="color:#64748B;font-size:.8rem;margin-bottom:1.1rem">Gemini AI is reading and classifying your document</div>
+                        <div style="color:#64748B;font-size:.8rem;margin-bottom:1.1rem">AI is reading and classifying your document</div>
                         <div style="display:flex;gap:6px;justify-content:center;margin-bottom:1.25rem">
                             <span style="width:7px;height:7px;background:#3B82F6;border-radius:50%;display:inline-block;animation:bounce 1.2s ease-in-out infinite"></span>
                             <span style="width:7px;height:7px;background:#3B82F6;border-radius:50%;display:inline-block;animation:bounce 1.2s ease-in-out infinite .2s"></span>
@@ -1715,7 +1715,7 @@
                         <i class="fas fa-brain" style="font-size:1.5rem;color:#818CF8"></i>
                     </div>
                     <div style="color:#F1F5F9;font-weight:700;font-size:1rem;margin-bottom:.45rem">AI Classification Overview</div>
-                    <p style="color:#64748B;font-size:.85rem;max-width:360px;margin:.4rem auto 1.5rem;line-height:1.65">Generate a Gemini-powered analysis of your classified documents — compliance posture, risk trajectory, regulatory exposure, and governance recommendations.</p>
+                    <p style="color:#64748B;font-size:.85rem;max-width:360px;margin:.4rem auto 1.5rem;line-height:1.65">Generate an AI-powered analysis of your classified documents — compliance posture, risk trajectory, regulatory exposure, and governance recommendations.</p>
                     <button onclick="getReportAiInsights()" id="reportAiBtn" style="background:linear-gradient(135deg,#7C3AED,#4F46E5);border:none;color:#fff;padding:.55rem 1.6rem;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer">
                         <i class="fas fa-brain me-2"></i>Generate AI Overview
                     </button>
@@ -1831,7 +1831,7 @@
                 const govItems = (ins.data_governance||[]).map(g=>'<li style="margin-bottom:.5rem;font-size:.84rem;color:#CBD5E1;line-height:1.55">' + esc(g) + '</li>').join('');
 
                 const fallbackBanner = ins.fallback
-                    ? '<div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.35);border-radius:10px;padding:.75rem 1rem;margin-bottom:.85rem;display:flex;align-items:flex-start;gap:.6rem"><i class="fas fa-exclamation-triangle" style="color:#FBBF24;font-size:.9rem;margin-top:2px;flex-shrink:0"></i><div style="font-size:.82rem;color:#FDE68A;line-height:1.55"><strong>Gemini AI quota temporarily reached.</strong> This overview was generated from your document statistics using built-in rules. The analysis will automatically use Gemini AI when the quota resets.</div></div>'
+                    ? '<div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.35);border-radius:10px;padding:.75rem 1rem;margin-bottom:.85rem;display:flex;align-items:flex-start;gap:.6rem"><i class="fas fa-exclamation-triangle" style="color:#FBBF24;font-size:.9rem;margin-top:2px;flex-shrink:0"></i><div style="font-size:.82rem;color:#FDE68A;line-height:1.55"><strong>AI quota temporarily reached.</strong> This overview was generated from your document statistics using built-in rules. The analysis will automatically use AI when the quota resets.</div></div>'
                     : '';
 
                 panel.innerHTML =
@@ -1839,7 +1839,7 @@
                     '<div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.08)">' +
                     '<div style="background:linear-gradient(135deg,#7C3AED,#4F46E5);width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fas fa-brain" style="color:#fff;font-size:.95rem"></i></div>' +
                     '<div><div style="font-weight:700;font-size:1.05rem;color:#F1F5F9">AI Overview &mdash; Classification Analysis</div>' +
-                    '<div style="font-size:.73rem;color:#64748B;margin-top:1px">' + (ins.model_used ? ins.model_used.replace('gemini/','Gemini ').replace('groq/','Groq ').replace('ollama/','Ollama ').replace('rule_based_fallback','Rule-based Analysis') : (ins.fallback ? 'Rule-based Analysis' : 'Gemini AI')) + ' &middot; ' + new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) + '</div></div>' +
+                    '<div style="font-size:.73rem;color:#64748B;margin-top:1px">' + (ins.model_used ? ins.model_used.replace('gemini/','Gemini ').replace('groq/','Groq ').replace('ollama/','Ollama ').replace('rule_based_fallback','Rule-based Analysis') : (ins.fallback ? 'Rule-based Analysis' : 'AI Analysis')) + ' &middot; ' + new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) + '</div></div>' +
                     '<button onclick="exportAiOverviewPdf()" style="margin-left:auto;background:#7C3AED;border:none;color:#fff;padding:.4rem 1rem;border-radius:7px;font-size:.78rem;cursor:pointer;font-weight:700;flex-shrink:0;box-shadow:0 1px 6px rgba(124,58,237,.45)" title="Export AI Overview as PDF"><i class="fas fa-file-pdf me-1"></i>Export PDF</button>' +
                     '</div>' +
                     fallbackBanner +

@@ -468,7 +468,7 @@
                         <i class="fas fa-lightbulb" style="font-size:1.4rem;color:#A78BFA"></i>
                     </div>
                     <div style="color:#F1F5F9;font-weight:700;font-size:1rem;margin-bottom:.4rem">AI Document Overview</div>
-                    <p style="color:#94A3B8;font-size:.82rem;margin-bottom:1.25rem;line-height:1.6;max-width:300px;margin-left:auto;margin-right:auto">Generate a deep Gemini AI narrative covering compliance exposure, governance recommendations, and risk trajectory for this document.</p>
+                    <p style="color:#94A3B8;font-size:.82rem;margin-bottom:1.25rem;line-height:1.6;max-width:300px;margin-left:auto;margin-right:auto">Generate a deep AI narrative covering compliance exposure, governance recommendations, and risk trajectory for this document.</p>
                     <button onclick="getDocOverview()" id="docOverviewBtn" style="background:linear-gradient(135deg,#7C3AED,#4F46E5);border:none;color:#fff;padding:.5rem 1.6rem;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer">
                         <i class="fas fa-lightbulb me-2"></i>Generate AI Overview
                     </button>
@@ -789,7 +789,7 @@
             var ins = await resp.json();
             if (resp.status === 429 || ins.error === 'rate_limit') {
                 var secs = ins.retry_after || 60;
-                panel.innerHTML = '<div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.35);border-radius:12px;padding:1rem 1.25rem;color:#FCD34D;font-size:.85rem"><i class="fas fa-clock me-2"></i><b>Rate limit reached.</b> The Gemini API free tier quota is temporarily exhausted. Please wait <b>' + secs + 's</b> and try again.</div>';
+                panel.innerHTML = '<div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.35);border-radius:12px;padding:1rem 1.25rem;color:#FCD34D;font-size:.85rem"><i class="fas fa-clock me-2"></i><b>Rate limit reached.</b> The AI API quota is temporarily exhausted. Please wait <b>' + secs + 's</b> and try again.</div>';
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fas fa-brain me-1"></i> AI Insights';
                 return;
@@ -808,7 +808,7 @@
                       '</div>' +
                       '<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.85rem 1rem;font-size:.84rem;color:#A5B4FC;line-height:1.65">' +
                         '<i class="fas fa-info-circle me-2" style="color:#818CF8"></i>' +
-                        'The Gemini AI model is currently experiencing <b style="color:#C4B5FD">high demand</b>. This is a temporary condition on Google\'s infrastructure &mdash; your scan data is intact.' +
+                        'The AI model is currently experiencing <b style="color:#C4B5FD">high demand</b>. This is a temporary condition &mdash; your scan data is intact.' +
                       '</div>' +
                       '<div style="display:flex;align-items:center;gap:.65rem;font-size:.8rem;color:#64748B">' +
                         '<i class="fas fa-redo" style="color:#6366F1"></i>' +
@@ -846,7 +846,7 @@
                 '<div style="background:#1E293B;border:1px solid rgba(99,102,241,.35);border-radius:14px;padding:1.5rem 1.75rem;color:#E2E8F0">' +
                 '<div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.08)">' +
                   '<div style="background:linear-gradient(135deg,#7C3AED,#4F46E5);width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fas fa-brain" style="color:#fff;font-size:.95rem"></i></div>' +
-                  '<div><div style="font-weight:700;font-size:1.05rem;color:#F1F5F9">AI Insights &mdash; Scan Analysis</div><div style="font-size:.73rem;color:#64748B;margin-top:1px">' + (ins.model_used ? ins.model_used.replace('gemini/','Gemini ').replace('groq/','Groq ').replace('ollama/','Ollama ').replace('rule_based_fallback','Rule-based Analysis') : 'Gemini AI') + ' &middot; ' + new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}) + '</div></div>' +
+                  '<div><div style="font-weight:700;font-size:1.05rem;color:#F1F5F9">AI Insights &mdash; Scan Analysis</div><div style="font-size:.73rem;color:#64748B;margin-top:1px">' + (ins.model_used ? ins.model_used.replace('gemini/','Gemini ').replace('groq/','Groq ').replace('ollama/','Ollama ').replace('rule_based_fallback','Rule-based Analysis') : 'AI Analysis') + ' &middot; ' + new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}) + '</div></div>' +
                 '</div>' +
                 (ins.fallback ? '<div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:.6rem .9rem;margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem"><i class="fas fa-exclamation-triangle" style="color:#FBBF24;font-size:.8rem"></i><span style="font-size:.78rem;color:#FCD34D">AI model unavailable \u2014 analysis generated using rule-based fallback.</span></div>' : '') +
                 '<div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1rem 1.1rem;margin-bottom:.85rem"><div style="font-size:.68rem;font-weight:700;color:#818CF8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem"><i class="fas fa-chart-line"></i>Executive Summary</div><div style="font-size:.86rem;line-height:1.7;color:#CBD5E1">' + escH(ins.executive_summary || '') + '</div></div>' +
@@ -878,7 +878,7 @@
                         '<div><div style="font-weight:700;font-size:.95rem;color:#C4B5FD">AI Model Temporarily Unavailable</div><div style="font-size:.75rem;color:#6366F1;margin-top:2px">503 &mdash; Service Unavailable</div></div>' +
                       '</div>' +
                       '<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.85rem 1rem;font-size:.84rem;color:#A5B4FC;line-height:1.65">' +
-                        '<i class="fas fa-info-circle me-2" style="color:#818CF8"></i>The Gemini AI model is currently experiencing <b style="color:#C4B5FD">high demand</b>. This is temporary &mdash; your scan data is intact.' +
+                        '<i class="fas fa-info-circle me-2" style="color:#818CF8"></i>The AI model is currently experiencing <b style="color:#C4B5FD">high demand</b>. This is temporary &mdash; your scan data is intact.' +
                       '</div>' +
                       '<div style="display:flex;align-items:center;gap:.65rem;font-size:.8rem;color:#64748B"><i class="fas fa-redo" style="color:#6366F1"></i>Wait a moment, then click <b style="color:#A5B4FC">AI Insights</b> to try again.</div>' +
                     '</div>';
@@ -1078,7 +1078,7 @@
                   '<div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.08)">' +
                     '<div style="background:linear-gradient(135deg,#7C3AED,#4F46E5);width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fas fa-lightbulb" style="color:#fff;font-size:.9rem"></i></div>' +
                     '<div><div style="font-weight:700;font-size:.95rem;color:#F1F5F9">AI Overview &mdash; ' + docName + '</div>' +
-                    '<div style="font-size:.72rem;color:#64748B;margin-top:1px">' + (ins.model_used ? ins.model_used.replace('gemini/','Gemini ').replace('groq/','Groq ').replace('ollama/','Ollama ').replace('rule_based_fallback','Rule-based Analysis') : 'Gemini AI') + ' &middot; ' + timeStamp + '</div></div>' +
+                    '<div style="font-size:.72rem;color:#64748B;margin-top:1px">' + (ins.model_used ? ins.model_used.replace('gemini/','Gemini ').replace('groq/','Groq ').replace('ollama/','Ollama ').replace('rule_based_fallback','Rule-based Analysis') : 'AI Analysis') + ' &middot; ' + timeStamp + '</div></div>' +
                   '</div>' +
                   (ins.fallback ? '<div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:.6rem .9rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem"><i class="fas fa-exclamation-triangle" style="color:#FBBF24;font-size:.8rem"></i><span style="font-size:.78rem;color:#FCD34D">AI model unavailable \u2014 analysis generated using rule-based fallback.</span></div>' : '') +
                   (ins.executive_summary ? '<div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:.9rem 1rem;margin-bottom:.75rem"><div style="font-size:.65rem;font-weight:700;color:#818CF8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem"><i class="fas fa-chart-line"></i>Executive Summary</div><div style="font-size:.85rem;line-height:1.7;color:#CBD5E1">' + escH(ins.executive_summary) + '</div></div>' : '') +
@@ -1503,7 +1503,7 @@
             doc.setTextColor.apply(doc,C.white); doc.setFont('helvetica','bold'); doc.setFontSize(10);
             doc.text('AI Overview \u2014 ' + (oName.length>55 ? oName.slice(0,53)+'\u2026' : oName), margin+2, 9.5);
             doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor.apply(doc,C.s400);
-            doc.text('Per-document Gemini AI analysis', pageW-margin, 9.5, {align:'right'});
+            doc.text('Per-document AI analysis', pageW-margin, 9.5, {align:'right'});
             var oy = 20;
             function ovSection(title, bodyText, accentR, accentG, accentB, bgR, bgG, bgB, textR, textG, textB) {
                 if (!bodyText) return;
