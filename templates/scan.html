@@ -438,6 +438,7 @@
             <div class="drawer-section">
                 <div class="drawer-section-title"><i class="fas fa-tags"></i>Category</div>
                 <div style="font-size:.85rem;color:#1E293B;font-weight:600" id="dCategory">—</div>
+                <div id="dModelBadge" style="display:none;margin-top:.45rem;font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:5px;display:inline-block"></div>
             </div>
             <div class="drawer-section" id="dSummarySection">
                 <div class="drawer-section-title"><i class="fas fa-align-left"></i>AI Summary</div>
@@ -933,6 +934,25 @@
 
         // Category
         document.getElementById('dCategory').textContent = cl.functional_group || cl.category || '—';
+
+        // Model used badge
+        var dmu = cl.model_used || '';
+        var dmuEl = document.getElementById('dModelBadge');
+        if (dmuEl && dmu) {
+            var dmuLabel = dmu.startsWith('gemini/') ? '\u2713 Gemini (' + dmu.replace('gemini/','') + ')'
+                         : dmu.startsWith('groq/')   ? '\u2713 Groq \u2014 ' + dmu.replace('groq/','')
+                         : dmu.startsWith('ollama/') ? '\u2713 Ollama \u2014 ' + dmu.replace('ollama/','')
+                         : dmu === 'keyword_fallback' ? '\u26A0 Keyword Fallback' : dmu;
+            var dmuColor = dmu.startsWith('gemini/') ? '#2563EB' : dmu.startsWith('groq/') ? '#10B981' : dmu.startsWith('ollama/') ? '#7C3AED' : '#92400E';
+            var dmuBg    = dmu.startsWith('gemini/') ? 'rgba(37,99,235,.08)' : dmu.startsWith('groq/') ? 'rgba(16,185,129,.08)' : dmu.startsWith('ollama/') ? 'rgba(124,58,237,.08)' : 'rgba(146,64,14,.08)';
+            dmuEl.textContent = dmuLabel;
+            dmuEl.style.color = dmuColor;
+            dmuEl.style.background = dmuBg;
+            dmuEl.style.border = '1px solid ' + dmuColor + '33';
+            dmuEl.style.display = 'inline-block';
+        } else if (dmuEl) {
+            dmuEl.style.display = 'none';
+        }
 
         // Summary
         var summaryEl = document.getElementById('dSummary');
